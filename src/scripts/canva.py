@@ -1,9 +1,12 @@
+import sys
+sys.path.insert(0, '../src')
+
 from tkinter import messagebox, ttk, Tk, Canvas, LabelFrame, PhotoImage, Button, FLAT, Label, HORIZONTAL, CENTER, Scale
 from shapely.geometry import Polygon
 
-from src.scripts import utils, SolvingThread, CanvasUtils, PolygonUtils
-from src.scripts.CanvasPolygon import CanvasPolygon
-from src.scripts.VerticalScrolledFrame import VerticalScrolledFrame
+import utils, SolvingThread, CanvasUtils, PolygonUtils
+from CanvasPolygon import CanvasPolygon
+from VerticalScrolledFrame import VerticalScrolledFrame
 
 
 class TangramCanvas:
@@ -166,7 +169,7 @@ class TangramCanvas:
 
         for i, elem in enumerate(self.prefabs):
             print("[" + str(i) + "] Creating " + elem['name'])
-            self.prefabs_models.append(PhotoImage(file='../images/' + elem['name'] + '.PNG'))
+            self.prefabs_models.append(PhotoImage(file='../src/images/' + elem['name'] + '.PNG'))
             self.prefabs_buttons.append(Button(self.scframe.interior, image=self.prefabs_models[i], relief=FLAT,
                                                command=lambda opt=i: [self.models(opt)]))
             self.prefabs_buttons[i].pack()
@@ -190,7 +193,7 @@ class TangramCanvas:
         # -- Window definition
         self.window = Tk()
         self.window.title("Tangram")
-        self.window.iconbitmap("../images/tangram_logo.ico")
+        self.window.iconbitmap("../src/images/tangram_logo.ico")
         self.window.geometry("1260x800")
         self.window.resizable(0, 0)
         self.window.scale = 1
@@ -218,23 +221,23 @@ class TangramCanvas:
         self.scframe.place(x=1000, y=20)
 
         # Polygons images next to + _ - buttons
-        self.imgMT = PhotoImage(file='../images/MT.PNG')
+        self.imgMT = PhotoImage(file='../src/images/MT.PNG')
         self.button = Button(self.numPolygonsFrame, image=self.imgMT, state="disabled")
         self.button.grid(row=1, column=4)
 
-        self.imgST = PhotoImage(file='../images/st.png')
+        self.imgST = PhotoImage(file='../src/images/st.png')
         self.button = Button(self.numPolygonsFrame, image=self.imgST, state="disabled")
         self.button.grid(row=2, column=4)
 
-        self.imgSQ = PhotoImage(file='../images/sq.png')
+        self.imgSQ = PhotoImage(file='../src/images/sq.png')
         self.button = Button(self.numPolygonsFrame, image=self.imgSQ, state="disabled")
         self.button.grid(row=3, column=4)
 
-        self.imgBT = PhotoImage(file='../images/bt.png')
+        self.imgBT = PhotoImage(file='../src/images/bt.png')
         self.button = Button(self.numPolygonsFrame, image=self.imgBT, state="disabled")
         self.button.grid(row=4, column=4)
 
-        self.imgP = PhotoImage(file='../images/p.png')
+        self.imgP = PhotoImage(file='../src/images/p.png')
         self.button = Button(self.numPolygonsFrame, image=self.imgP, state="disabled")
         self.button.grid(row=5, column=4)
 

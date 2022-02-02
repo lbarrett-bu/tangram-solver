@@ -1,3 +1,6 @@
+import sys
+sys.path.insert(0, '../src')
+
 import math
 from shapely.geometry import Polygon
 from shapely.ops import cascaded_union

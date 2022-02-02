@@ -1,9 +1,12 @@
+import sys
+sys.path.insert(0, '../src')
+
 import json
 import math
 from random import uniform
 import matplotlib.pyplot as plt
 from shapely.geometry import Polygon
-from src.scripts import PolygonUtils
+import PolygonUtils
 
 
 def margin_error(ref, value):
@@ -140,7 +143,7 @@ def draw_node(shapes, state, ref):
 
 def load_prefabs():
     """ We avoid hardcoding data so we load it from storage """
-    file = open('../assets/prefabs.json',)
+    file = open('../src/assets/prefabs.json',)
     data = json.load(file)
     return data
 

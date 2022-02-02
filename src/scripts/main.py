@@ -1,5 +1,8 @@
+import sys
+sys.path.insert(0, '../src')
+
 # Main function
-from src.scripts.canva import TangramCanvas
+from canva import TangramCanvas
 
 
 def main():

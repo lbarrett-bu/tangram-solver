@@ -1,5 +1,8 @@
+import sys
+sys.path.insert(0, '../src')
+
 import copy
-from src.scripts import utils, PolygonUtils
+import utils, PolygonUtils
 from shapely.geometry import Polygon, LineString
 
 

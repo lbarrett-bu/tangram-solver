@@ -1,5 +1,8 @@
+import sys
+sys.path.insert(0, '../src')
+
 from math import radians, cos, sin
-from src.scripts import utils, CanvasUtils
+import utils, CanvasUtils
 
 
 class CanvasPolygon:

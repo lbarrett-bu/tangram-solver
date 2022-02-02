@@ -1,6 +1,9 @@
+import sys
+sys.path.insert(0, '../src')
+
 import math
 import numpy
-from src.scripts import PolygonUtils
+import PolygonUtils
 
 
 # Constants

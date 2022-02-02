@@ -1,7 +1,10 @@
+import sys
+sys.path.insert(0, '../src')
+
 import threading
 from queue import Queue
-from src.scripts import utils
-from src.scripts.TangramSolver import TangramSolver
+import utils
+from TangramSolver import TangramSolver
 from tkinter import messagebox
 from shapely.geos import TopologicalError
 
