@@ -22,7 +22,6 @@ class TangramSolver:
     # Exploring the corners
     def corner_explore(self, ref, shape_index, state):
         multipolygon = []
-        solutions = []
         if not isinstance(ref, Polygon):
             multipolygon = list(ref)
         else:
@@ -56,15 +55,11 @@ class TangramSolver:
                             # print("We found a shape which fit ")
                             if shape_index == len(self.shapes) - 1:
                                 print("Finish")
-                                solutions.append(new_state)
-                                # return True, new_state
+                                return True, new_state
                             else:
-
-                                is_success, new_state = self.corner_explore(diff, shape_index + 1, new_state)
+                                is_success, solutions = self.corner_explore(diff, shape_index + 1, new_state)
                                 if is_success:
                                     return True, new_state
-        if len(solutions) != 0:
-            return True, solutions
         return False, None
 
     # Solving function
