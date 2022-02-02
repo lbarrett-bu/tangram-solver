@@ -54,12 +54,13 @@ def run_in_other_thread(queue, original, types):
     tangram_solver = TangramSolver(original, types)
 
     try:
-        shapes, final_shapes, coordinates = tangram_solver.execute()
+        shapes, solutions, coordinates = tangram_solver.execute()
 
-        queue.put(True)
-        queue.put(shapes)
-        queue.put(final_shapes)
-        queue.put(coordinates)
+        for final_shapes in solutions:
+            queue.put(True)
+            queue.put(shapes)
+            queue.put(final_shapes)
+            queue.put(coordinates)
     except (RuntimeError, TypeError, NameError):
         print("Error: " + str(NameError))
         queue.put(False)
